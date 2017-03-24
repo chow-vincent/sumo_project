@@ -1,0 +1,10 @@
+Files for sumo wrestling project:
+
+data/ : contains data collected from online, public database using Beautiful Soup Library. Stored as pickle files from pandas dataframes.
+
+plots/ : contains visualizations of data in Seaborn plots saved as png's.
+
+tourneys/ : contains daily tourney head-to-head lineups for March (Haru) Basho 2017.
+
+
+Python files include code for scraping data, visualizing trends, training ML algorithms, and predicting outcomes of future head-to-head matches between sumo wrestlers.
