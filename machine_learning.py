@@ -1,4 +1,4 @@
-""" Script for doing various machine learning tasks, including predicting outcomes of new bouts.
+""" Script for doing various machine learning tasks, including model evaluation & predicting outcomes of new bouts.
 
 Head-to-head matches are imported by placing Excel match-ups into text files in the 'tourneys/schedules' folder.
 Results (including outcomes and probabilities) are also printed to text files in the 'tourneys/results' folder, for
@@ -7,14 +7,22 @@ quick transfer into Excel spreadsheets.
 Usage:
 (1) Set up pickle file from which to load generated features (from feature_generation.py)
 (2) Set up file names from which to load tourney schedules and save tourney results (bottom of script)
-(3) Set up list of sumo wrestlers, their abbreviated names, and their ranks for this tourney
+(3) Decide to do model evaluation (Option A), or predict outcomes of new bouts (Option B). Comment in desired code.
+
+Option A:
 (4) Run machine_learning.py
+
+
+Option B:
+(4) Set up list of sumo wrestlers, their abbreviated names, and their ranks for this tourney
+(5) Run machine_learning.py
 
 """
 
 from sklearn import linear_model
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split  # used if performing model evaluation/cross-validation
+from sklearn.metrics import precision_recall_fscore_support
 import pandas as pd
 from ml_fxns import predict_outcome, read_schedule
 pd.set_option('display.width', 500)
@@ -38,21 +46,28 @@ y = feature_df.loc[:, 'label']  # labels, outcomes for first sumo (1 for wins, 0
 
 
 # --- Initialize Model --- #
-# NO bias unit, b/c if all values are the same, we should expect 50% probability when features are ZERO in value
+# NO bias unit, b/c if two values of a feature are the same, we expect 50% probability when features are ZERO in value
 logistic = linear_model.LogisticRegression(fit_intercept=False)
 
 
-# ========== MODEL EVALUATION (Comment Out For New Predictions) ========== #
+# ========== OPTION A: MODEL EVALUATION (Comment Out For Testing New Predictions) ========== #
 # X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.33, random_state=42)
+#
+# logistic.fit(X_train, y_train)
+# y_pred = logistic.predict(X_test)
+#
+# precision, recall, fbeta_score, _ = precision_recall_fscore_support(y_test, y_pred, beta=1.0, labels=[1])
+#
+# print "Precision: %0.3f" % precision
+# print "Recall   : %0.3f" % recall
+# print "F1 Score : %0.3f" % fbeta_score  # F1 score for predicting wins (similar result to predicting losses)
+
 
 # print('LogisticRegression score: %f'
-#       % logistic.fit(X_train, y_train).score(X_test, y_test))
-
-# N ~ 985 viable makuuchi-division sumo wrestlers
-# Using ht, wt, age, active, h2h, rank differences: 0.57 cross-validation accuracy (newest method)
+#       % logistic.fit(X_train, y_train).score(X_test, y_test))  # reports mean accuracy
 
 
-# ============ PREDICT OUTCOMES FOR FUTURE HEAD-TO-HEAD MATCHES =========== #
+# ========== OPTION B: PREDICT OUTCOMES FOR FUTURE HEAD-TO-HEAD MATCHES (Comment Out for Model Evaluation) ========= #
 
 logistic.fit(X_scaled, y)  # fit on all STANDARDIZED data
 
@@ -121,7 +136,7 @@ shikona_abbrevs = {u'Hakuho': u'Hakuho Sho', u'Kakuryu': u'Kakuryu Rikisaburo', 
 
 
 # -- Setup Input and Output Files --- #
-tourney_day = 'haru2017_day13'
+tourney_day = 'haru2017_day15'
 
 match_list = read_schedule('tourneys/schedules/' + tourney_day + '.txt')  # input file
 
