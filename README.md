@@ -23,6 +23,8 @@ Finally, I **trained a logistic regression model on this data** to predict the o
 
 Below are a couple interesting plots I generated. Makuuchi refers to the top division of sumo wrestlers (sumos good enough to compete in the Grand Tournaments).
 
+<img src="plots/makuuchi_wp_distrib.png" height="50%" width="50%"></img>
+
 ![wp_distribution](plots/makuuchi_wp_distrib.png){:height="50%" width="50%"}
 
 ![wp_vs_weight](plots/makuuchi_wp_vs_weight.png)
