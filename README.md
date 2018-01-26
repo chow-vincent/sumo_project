@@ -22,9 +22,9 @@ Finally, I **trained a logistic regression model on this data** to predict the o
 
 ## Results
 
-Cross-Validation F1 Score (accuracy in predicting wins): 57.1%
+Cross-Validation F1 Score (a measure of accuracy in predicting wins): 57.1%
 
-Test F1 Score pending completion of 2017 March Grand Tournament.
+F1 Score for ~300 unseen matches in 2017 March Grand Tourney: 60.8%
 
 
 ## Future Work
