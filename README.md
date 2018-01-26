@@ -23,11 +23,13 @@ Finally, I **trained a logistic regression model on this data** to predict the o
 
 Below are a couple interesting plots I generated. Makuuchi refers to the top division of sumo wrestlers (sumos good enough to compete in the Grand Tournaments).
 
-<img src="plots/makuuchi_wp_distrib.png" height="50%" width="50%"></img>
+<!-- 
+<img src="plots/makuuchi_wp_distrib.png" align="middle" height="50%" width="50%"></img>
 
-![wp_distribution](plots/makuuchi_wp_distrib.png){:height="50%" width="50%"}
+We see that the median win percentage is slightly below 50%. A top sumo wrestler will typically lose more matches than win matches during his career. In general, sumo wrestlers 
 
 ![wp_vs_weight](plots/makuuchi_wp_vs_weight.png)
+-->
 
 
 ## Results
@@ -37,9 +39,15 @@ Cross-Validation F1 Score (a measure of accuracy in predicting wins): 57.1%
 F1 Score for ~300 unseen matches in 2017 March Grand Tourney: 60.8%
 
 
+## Lessons Learned
+
+   - Garbage in, garbage out. Even if one has a lot of data to work with, if the features do not capture useful information, then the ML algorithms applied will have no predictive power.
+
+   - It is challenging to beat the betting markets. Using traditional, publicly available data (e.g. head-to-head win percentages, rank, height, weight) is not enough to achieve an accuracy better than betting markets. 
+
 ## Future Work
 
-   - Gather more interesting features (e.g. scrape professional sumo's Twitter profiles?)
+   - Gather more interesting, non-traditional features (e.g. scrape professional sumo's Twitter profiles, visual information from match footage)
    - Perform more work with feature selection
    - Try different classifier algorithms
 
