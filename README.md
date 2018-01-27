@@ -24,8 +24,8 @@ Finally, I **trained a logistic regression model on this data** to predict the o
 Below are a couple plots I generated. Makuuchi refers to the top division of sumo wrestlers (sumos good enough to compete in the 6 Grand Tournaments that happen each year in Japan).
 
 
-<div style="text-align:center"><img src="plots/makuuchi_wp_distrib.png" align="middle" height="50%" width="50%"></img>
-</div>
+<p align="center"><img src="plots/makuuchi_wp_distrib.png" align="middle" height="50%" width="50%"></img>
+</p>
 
 We see that the median win percentage is below 50%. A top sumo wrestler will typically lose more than half his matches during his career in the top Makuuchi division. In general, sumo wrestlers will only rise rank if they win more than half their matches during a Grand Tournament. The median win percentage is consistent with the fact that there are fewer spots at higher ranks in the top division.
 
