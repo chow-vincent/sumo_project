@@ -29,11 +29,11 @@ Below are a couple plots I generated. Makuuchi refers to the top division of sum
 
 We see that the median win percentage is below 50%. A top sumo wrestler will typically lose more than half his matches during his career in the top Makuuchi division. In general, sumo wrestlers will only rise rank if they win more than half their matches during a Grand Tournament. The median win percentage is consistent with the fact that there are fewer spots at higher ranks in the top division.
 
-<div style="text-align:center"><img src="plots/makuuchi_wp_vs_weight.png" align="middle" height="50%" width="50%"></img></div>
+<p align="center"><img src="plots/makuuchi_wp_vs_weight.png" align="middle" height="50%" width="50%"></img></p>
 
 We see that weight is not a good predictor of win percentage. This plot exhibits a trend similar to other features such as height, age, and number of active years.
 
-<div style="text-align:center"><img src="plots/wp_vs_rank.png" align="middle" height="50%" width="50%"></img></div>
+<p align="center"><img src="plots/wp_vs_rank.png" align="middle" height="50%" width="50%"></img></p>
 
 The plot above shows win percentage versus rank (decreasing from left to right). Sumos at higher ranks appear to have higher win rates, but the variation within each rank is quite high, with much overlap across ranks.
 
@@ -48,10 +48,10 @@ F1 Score for approximately 300 unseen matches in 2017 March Grand Tourney: 60.8%
 
    - Garbage in, garbage out. Even if one has a lot of data to work with, if the features do not capture useful information, then the ML algorithms applied will have no predictive power. The plot below captures this idea well. Even with 50,000 training/test samples, the training and test errors converge well before at approximately 10,000 samples.
 
-<div style="text-align:center"><img src="plots/lr_learning_curve.png" align="middle" height="50%" width="50%"></img></div>
+<p align="center"><img src="plots/lr_learning_curve.png" align="middle" height="50%" width="50%"></img></p>
 
-
-   - It is challenging to beat the betting markets. Using traditional, publicly available data (e.g. head-to-head win percentages, rank, height, weight) is not enough to achieve an accuracy better than betting markets. 
+<br>
+   - It is challenging to beat the betting markets. Using traditional, publicly available data (e.g. head-to-head win percentages, rank, height, weight) is not enough to achieve an accuracy that can beat the market (and earn you net positive money).
 
 ## Future Work
 
