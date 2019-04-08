@@ -3,6 +3,8 @@
 
 The goal of this project was to use machine learning to **predict the outcomes of sumo wrestling bouts** in Japanese Sumo Grand Tournaments.
 
+Most of the project focused on data collection and exploration. On the prediction side, a simple logistic regression model ingesting a few key features can predict the outcomes of a grand tournament with about 61% accuracy. Better than random chance, but not enough margin to beat the betting markets. A lot of work can be done regarding prediction.
+
 
 ## Folders
 
